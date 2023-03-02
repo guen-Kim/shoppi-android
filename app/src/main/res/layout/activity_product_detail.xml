@@ -41,6 +41,7 @@
 
             <TextView
                 android:id="@+id/tv_product_brand_name"
+                style="@style/TextSubtitle3.Grey03"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -53,6 +54,7 @@
 
             <TextView
                 android:id="@+id/tv_product_label"
+                style="@style/TextMedium"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -65,6 +67,7 @@
 
             <TextView
                 android:id="@+id/tv_product_discount_rate"
+                style="@style/TextMedium.Purple.Bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -75,6 +78,7 @@
 
             <TextView
                 android:id="@+id/tv_product_discount_price"
+                style="@style/TextMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -85,6 +89,7 @@
 
             <TextView
                 android:id="@+id/tv_product_price"
+                style="@style/TextSubtitle3.Grey03"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
@@ -103,6 +108,7 @@
 
             <TextView
                 android:id="@+id/tv_product_image_title"
+                style="@style/TextSubtitle3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
