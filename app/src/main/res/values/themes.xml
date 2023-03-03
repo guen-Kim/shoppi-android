@@ -11,8 +11,11 @@
         <item name="colorOnSecondary">@color/shoppi_black_01</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <item name="android:textColorPrimary">#ff0000</item>
-
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.Shoppiandroid.Splash">
+        <item name="android:windowBackground">@drawable/background_splash_screen</item>
+    </style>
+
 </resources>
