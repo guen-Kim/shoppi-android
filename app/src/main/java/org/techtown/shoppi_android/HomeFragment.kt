@@ -8,7 +8,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
+import com.google.android.material.tabs.TabLayout
+import com.google.gson.Gson
 
 import org.json.JSONObject
 
@@ -32,26 +35,32 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        val appbarTitle = view.findViewById<TextView>(R.id.toolbar_home_title)
-        val appbarLogo = view.findViewById<ImageView>(R.id.toolbar_home_icon)
+        val toolbarTitle = view.findViewById<TextView>(R.id.toolbar_home_title)
+        val toolbarIcon = view.findViewById<ImageView>(R.id.toolbar_home_icon)
+        val viewpager = view.findViewById<ViewPager2>(R.id.viewpager_home_banner)
+        val viewpagerIndicator = view.findViewById<TabLayout>(R.id.viewpager_home_banner_indicator)
 
         val assetsLoader = AssetsLoader()
-        val homeData = assetsLoader.getJsonString(this.requireContext(), "home.json")
-        Log.d("homeData", homeData ?: "")
+        val homeJsonString = assetsLoader.getJsonString(this.requireContext(), "home.json")
+        Log.d("homeData", homeJsonString ?: "")
 
 
 
-        if (homeData != null) {
-            val jsonData = JSONObject(homeData)
-            val title = jsonData.getJSONObject("title")
-            val text = title.getString("text")
-            val iconUrl = title.getString("icon_url")
-            val titleOb = Title(text, iconUrl)
+        if (!homeJsonString.isNullOrEmpty()) {
+            val gson = Gson()
+            val homeData = gson.fromJson(homeJsonString, HomeData::class.java)
 
-            appbarTitle.text = titleOb.text
+            toolbarTitle.text = homeData.title.text
             Glide.with(this)
-                .load(iconUrl)
-                .into(appbarLogo);
+                .load(homeData.title.iconUrl)
+                .into(toolbarIcon);
+
+
+            viewpager.adapter = HomeBannerAdapter().apply {
+                submitList(homeData.topBanners)
+
+            }
+
 
         }
 

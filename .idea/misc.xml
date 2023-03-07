@@ -13,13 +13,14 @@
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/drawable/selector_cart_icon.xml" value="0.1485" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/drawable/selector_category_icon.xml" value="0.1485" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/drawable/selector_home_icon.xml" value="0.119" />
+        <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/drawable/shape_banner.xml" value="0.1965" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/layout/activity_product_detail.xml" value="0.28112449799196787" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/layout/fragment_cart.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/layout/fragment_category.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/layout/fragment_product_detail.xml" value="0.17395833333333333" />
-        <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/layout/item_home_banner.xml" value="0.1621376811594203" />
+        <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/layout/item_home_banner.xml" value="0.4" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/menu/navigation_main_menu.xml" value="0.16944444444444445" />
       </map>
     </option>

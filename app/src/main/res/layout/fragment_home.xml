@@ -20,6 +20,7 @@
 
             <TextView
                 android:id="@+id/toolbar_home_title"
+                style="@style/TextHeadLine5.Black02.Bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="72dp"
@@ -28,7 +29,6 @@
                 android:paddingTop="32dp"
                 android:paddingEnd="16dp"
                 android:paddingBottom="24dp"
-                style="@style/TextHeadLine5.Black02.Bold"
                 tools:text="혀두님, 이런 상품\n 어때요?" />
 
 
@@ -51,10 +51,29 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
         <!-- Scrollable content -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewpager_home_banner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/viewpager_home_banner_indicator"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/viewpager_home_banner" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
