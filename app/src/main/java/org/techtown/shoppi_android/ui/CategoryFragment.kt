@@ -1,10 +1,11 @@
-package org.techtown.shoppi_android
+package org.techtown.shoppi_android.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import org.techtown.shoppi_android.R
 
 class CategoryFragment: Fragment() {
 

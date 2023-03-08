@@ -1,4 +1,4 @@
-package org.techtown.shoppi_android
+package org.techtown.shoppi_android.ui
 
 import android.content.Intent
 import android.os.Bundle
