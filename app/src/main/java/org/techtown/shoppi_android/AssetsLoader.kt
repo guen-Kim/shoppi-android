@@ -3,19 +3,19 @@ package org.techtown.shoppi_android
 import android.content.Context
 import android.util.Log
 
-class AssetsLoader {
+class AssetsLoader(private val context: Context) {
 
 
-    fun getJsonString(context: Context, fileName: String): String?{
+    fun getJsonString(fileName: String): String?{
         return kotlin.runCatching {
-            loaderAsset(context, fileName)
+            loaderAsset(fileName)
         }.getOrNull()
     }
 
 
 
 
-    private fun loaderAsset(context: Context, fileName: String): String {
+    private fun loaderAsset(fileName: String): String {
         return context.assets.open(fileName).use { inputStream ->
             val size = inputStream.available()
             val bytes = ByteArray(size)

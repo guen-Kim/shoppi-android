@@ -1,4 +1,4 @@
-package org.techtown.shoppi_android.ui
+package org.techtown.shoppi_android.ui.home
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import org.techtown.shoppi_android.Banner
+import org.techtown.shoppi_android.model.Banner
 import org.techtown.shoppi_android.R
 import java.text.DecimalFormat
 import kotlin.math.roundToInt

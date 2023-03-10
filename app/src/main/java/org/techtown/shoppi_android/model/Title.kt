@@ -1,4 +1,4 @@
-package org.techtown.shoppi_android
+package org.techtown.shoppi_android.model
 
 import com.google.gson.annotations.SerializedName
 
