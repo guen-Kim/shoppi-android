@@ -1,5 +1,6 @@
 package org.techtown.shoppi_android.ui.home
 
+import android.content.ClipData
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
@@ -13,17 +14,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import org.techtown.shoppi_android.model.Banner
 import org.techtown.shoppi_android.R
+import org.techtown.shoppi_android.databinding.ItemHomeBannerBinding
+import org.techtown.shoppi_android.ui.common.applyPriceFormat
+import org.techtown.shoppi_android.ui.common.loadImage
 import java.text.DecimalFormat
 import kotlin.math.roundToInt
 
 class HomeBannerAdapter :
     ListAdapter<Banner, HomeBannerAdapter.HomeBannerViewHolder>(BannerDiffCallBack()) {
 
+    private lateinit var binding: ItemHomeBannerBinding
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeBannerViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_home_banner, parent, false)
-        return HomeBannerViewHolder(view)
+        binding = ItemHomeBannerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return HomeBannerViewHolder(binding)
 
     }
 
@@ -37,55 +42,14 @@ class HomeBannerAdapter :
 
     }
 
-    class HomeBannerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class HomeBannerViewHolder(private val binding: ItemHomeBannerBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        private val bannerImageView = view.findViewById<ImageView>(R.id.iv_banner_image)
-        private val bannerBadgeTextView = view.findViewById<TextView>(R.id.tv_banner_badge)
-        private val bannerTitleTextView = view.findViewById<TextView>(R.id.tv_banner_title)
-        private val bannerDetailThumbnailImageView =
-            view.findViewById<ImageView>(R.id.iv_banner_detail_thumbnail)
-        private val bannerDetailBrandLabelTextView =
-            view.findViewById<TextView>(R.id.tv_banner_detail_brand_label)
-        private val bannerDetailProductLabelTextView =
-            view.findViewById<TextView>(R.id.tv_banner_detail_product_label)
-        private val bannerDetailDiscountRateTextView =
-            view.findViewById<TextView>(R.id.tv_banner_detail_product_discount_rate)
-        private val bannerDetailDiscountPriceTextView =
-            view.findViewById<TextView>(R.id.tv_banner_detail_product_discount_price)
-        private val bannerDetailPriceTextView =
-            view.findViewById<TextView>(R.id.tv_banner_detail_product_price)
 
         fun bind(banner: Banner) {
-            loadImage(banner.backgroundImageUrl, bannerImageView)
-            bannerBadgeTextView.text = banner.badge.label
-            bannerBadgeTextView.background = ColorDrawable(Color.parseColor(banner.badge.backGroundColor))
-            bannerTitleTextView.text = banner.label
-            loadImage(banner.productDetail.thumbnailImageUrl, bannerDetailThumbnailImageView)
-            bannerDetailBrandLabelTextView.text = banner.productDetail.brandName
-            bannerDetailProductLabelTextView.text = banner.productDetail.label
-            bannerDetailDiscountRateTextView.text = "${banner.productDetail.discountRate}%"
-            calculateDiscountAmount(bannerDetailDiscountPriceTextView, banner.productDetail.discountRate, banner.productDetail.price)
-            applyPriceFormat(bannerDetailPriceTextView, banner.productDetail.price)
-
+            binding.banner = banner
+            binding.executePendingBindings()
         }
-        private fun calculateDiscountAmount(view: TextView, discountRate: Int, price: Int) {
-            val discountPrice = (((100 - discountRate) / 100.0) * price).roundToInt()
-            applyPriceFormat(view, discountPrice)
-        }
-
-        private fun applyPriceFormat(view: TextView, price: Int) {
-            val decimalFormat = DecimalFormat("#,###")
-            view.text = decimalFormat.format(price) + "원"
-        }
-        private fun loadImage(imageUrl: String, imageView: ImageView) {
-            Glide.with(itemView)
-                .load(imageUrl)
-                .into(imageView)
-        }
-
     }
-
-
 }
 
 
