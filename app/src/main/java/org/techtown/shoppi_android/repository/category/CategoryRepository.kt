@@ -1,7 +1,5 @@
-package org.techtown.shoppi_android.repository
+package org.techtown.shoppi_android.repository.category
 
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import org.techtown.shoppi_android.model.Category
 
 class CategoryRepository(private val remoteDataSource: CategoryRemoteDataSource) {

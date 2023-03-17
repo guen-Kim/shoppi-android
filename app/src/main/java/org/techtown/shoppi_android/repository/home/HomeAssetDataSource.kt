@@ -1,4 +1,4 @@
-package org.techtown.shoppi_android.repository
+package org.techtown.shoppi_android.repository.home
 
 import com.google.gson.Gson
 import org.techtown.shoppi_android.AssetsLoader

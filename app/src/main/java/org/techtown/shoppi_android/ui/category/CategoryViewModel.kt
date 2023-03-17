@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import org.techtown.shoppi_android.model.Category
-import org.techtown.shoppi_android.repository.CategoryRepository
+import org.techtown.shoppi_android.repository.category.CategoryRepository
 
 class CategoryViewModel(private val categoryRepository: CategoryRepository): ViewModel() {
 

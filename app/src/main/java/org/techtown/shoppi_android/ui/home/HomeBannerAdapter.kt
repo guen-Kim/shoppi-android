@@ -1,24 +1,13 @@
 package org.techtown.shoppi_android.ui.home
 
-import android.content.ClipData
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
+
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import org.techtown.shoppi_android.model.Banner
-import org.techtown.shoppi_android.R
 import org.techtown.shoppi_android.databinding.ItemHomeBannerBinding
-import org.techtown.shoppi_android.ui.common.applyPriceFormat
-import org.techtown.shoppi_android.ui.common.loadImage
-import java.text.DecimalFormat
-import kotlin.math.roundToInt
 
 class HomeBannerAdapter :
     ListAdapter<Banner, HomeBannerAdapter.HomeBannerViewHolder>(BannerDiffCallBack()) {

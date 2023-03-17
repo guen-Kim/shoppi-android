@@ -4,12 +4,11 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import org.techtown.shoppi_android.AssetsLoader
-import org.techtown.shoppi_android.model.Category
 import org.techtown.shoppi_android.network.ApiClient
-import org.techtown.shoppi_android.repository.CategoryRemoteDataSource
-import org.techtown.shoppi_android.repository.CategoryRepository
-import org.techtown.shoppi_android.repository.HomeAssetDataSource
-import org.techtown.shoppi_android.repository.HomeRepository
+import org.techtown.shoppi_android.repository.category.CategoryRemoteDataSource
+import org.techtown.shoppi_android.repository.category.CategoryRepository
+import org.techtown.shoppi_android.repository.home.HomeAssetDataSource
+import org.techtown.shoppi_android.repository.home.HomeRepository
 import org.techtown.shoppi_android.ui.category.CategoryViewModel
 import org.techtown.shoppi_android.ui.home.HomeViewModel
 import java.lang.IllegalArgumentException
