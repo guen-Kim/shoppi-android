@@ -30,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
             android:layout_marginBottom="7dp"
+            android:background="@{banner.badge.backGroundColor}"
             android:paddingStart="7dp"
             android:paddingTop="1dp"
             android:paddingEnd="7dp"
@@ -38,7 +39,6 @@
             android:textColor="@color/shoppi_white"
             app:layout_constraintBottom_toTopOf="@id/tv_banner_title"
             app:layout_constraintStart_toStartOf="@id/iv_banner_image"
-            tools:background="@{banner.badge.backGroundColor}"
             tools:text="기획전" />
 
         <TextView
