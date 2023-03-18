@@ -1,8 +1,10 @@
 package org.techtown.shoppi_android.ui.category
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ListAdapter
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import org.techtown.shoppi_android.databinding.ItemCategoryBinding
@@ -10,7 +12,7 @@ import org.techtown.shoppi_android.databinding.ItemHomeBannerBinding
 import org.techtown.shoppi_android.model.Category
 import org.techtown.shoppi_android.ui.home.HomeBannerAdapter
 
-class CategoryAdapter:
+class CategoryAdapter(private val viewModel: CategoryViewModel):
     androidx.recyclerview.widget.ListAdapter<Category, CategoryAdapter.CategoryViewHolder>(CategoryDiffCallBack())  {
 
 
@@ -20,7 +22,8 @@ class CategoryAdapter:
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryAdapter.CategoryViewHolder {
         binding = ItemCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return CategoryAdapter.CategoryViewHolder(binding)
+        Log.d("MVVM클릭이동이벤트처리", "CategoryAdapter.onCreateViewHolder()")
+        return CategoryViewHolder(binding)
 
     }
 
@@ -30,10 +33,12 @@ class CategoryAdapter:
 
 
 
-    class CategoryViewHolder(private val binding: ItemCategoryBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class CategoryViewHolder(private val binding: ItemCategoryBinding): RecyclerView.ViewHolder(binding.root) {
 
 
         fun bind(category: Category){
+            Log.d("MVVM클릭이동이벤트처리", "CategoryViewHolder.bind()")
+            binding.viewModel = viewModel
             binding.category = category
             binding.executePendingBindings()
         }

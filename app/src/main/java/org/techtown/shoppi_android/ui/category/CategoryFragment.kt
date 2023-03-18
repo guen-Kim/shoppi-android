@@ -5,8 +5,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import org.techtown.shoppi_android.R
 import org.techtown.shoppi_android.databinding.FragmentCategoryBinding
 import org.techtown.shoppi_android.ui.common.ViewModelFactory
@@ -31,11 +33,36 @@ class CategoryFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        val categoryAdapter = CategoryAdapter()
+        val categoryAdapter = CategoryAdapter(viewModel)
         binding.rvCategoryList.adapter = categoryAdapter
 
         viewModel.items.observe(viewLifecycleOwner) {
             categoryAdapter.submitList(it)
         }
+
+        viewModel.openCatetoryEvent.observe(viewLifecycleOwner) {
+            Log.d("MVVM클릭이동이벤트처리", "CategoryFragment.viewModel.openCatetoryEvent.observe() 수정된(전달된) 데이터: " + "${it.categoryId}")
+            openCategoryDetail(it.categoryId, it.label)
+        }
     }
+
+
+    private fun openCategoryDetail(categoryId: String, categoryLabel: String) {
+        findNavController().navigate(
+            R.id.action_category_to_category_detail, bundleOf(
+                // key, value
+                "category_id" to categoryId,
+                "category_label" to categoryLabel
+
+            )
+        )
+        Log.d("MVVM클릭이동이벤트처리", "CategoryFragment.openCategoryDetail()")
+
+    }
+
+
+
+
+
+
 }

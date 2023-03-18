@@ -1,5 +1,6 @@
 package org.techtown.shoppi_android.ui.category
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,10 +14,22 @@ class CategoryViewModel(private val categoryRepository: CategoryRepository): Vie
     private val _items = MutableLiveData<List<Category>>()
     val items: LiveData<List<Category>> = _items
 
+    //category item state
+    private val _openCatetoryEvent = MutableLiveData<Category>()
+    val openCatetoryEvent: LiveData<Category> = _openCatetoryEvent
+
 
     init{
         loadCategory()
     }
+
+    fun openCategoryDetail(category: Category) {
+        Log.d("MVVM클릭이동이벤트처리", "CategoryViewModel.openCategoryDetail(Category)")
+        _openCatetoryEvent.value = category
+        Log.d("MVVM클릭이동이벤트처리",  "전달된:"+ _openCatetoryEvent.value )
+    }
+
+
 
 
     private fun loadCategory() {
