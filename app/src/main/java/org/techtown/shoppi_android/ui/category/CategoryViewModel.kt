@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import org.techtown.shoppi_android.model.Category
 import org.techtown.shoppi_android.repository.category.CategoryRepository
+import org.techtown.shoppi_android.ui.common.Event
 
 class CategoryViewModel(private val categoryRepository: CategoryRepository): ViewModel() {
 
@@ -15,8 +16,8 @@ class CategoryViewModel(private val categoryRepository: CategoryRepository): Vie
     val items: LiveData<List<Category>> = _items
 
     //category item state
-    private val _openCatetoryEvent = MutableLiveData<Category>()
-    val openCatetoryEvent: LiveData<Category> = _openCatetoryEvent
+    private val _openCatetoryEvent = MutableLiveData<Event<Category>>()
+    val openCatetoryEvent: LiveData<Event<Category>> = _openCatetoryEvent
 
 
     init{
@@ -25,7 +26,7 @@ class CategoryViewModel(private val categoryRepository: CategoryRepository): Vie
 
     fun openCategoryDetail(category: Category) {
         Log.d("MVVM클릭이동이벤트처리", "CategoryViewModel.openCategoryDetail(Category)")
-        _openCatetoryEvent.value = category
+        _openCatetoryEvent.value = Event(category)
         Log.d("MVVM클릭이동이벤트처리",  "전달된:"+ _openCatetoryEvent.value )
     }
 

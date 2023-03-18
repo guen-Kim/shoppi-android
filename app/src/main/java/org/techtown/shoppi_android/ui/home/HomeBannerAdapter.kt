@@ -17,6 +17,7 @@ class HomeBannerAdapter :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeBannerViewHolder {
         binding = ItemHomeBannerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+
         return HomeBannerViewHolder(binding)
 
     }

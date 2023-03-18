@@ -25,10 +25,11 @@ class CategoryDetailFragment: Fragment() {
 
         binding.lifecycleOwner = viewLifecycleOwner
 
+        // bundle 객체에 전달된 데이터 조회하기
+        val categoryId = requireArguments().getString("KEY_CATEGORY_ID")
+        val categoryLabel = requireArguments().getString("KEY_CATEGORY_LABEL")
 
-
-
-
+        binding.toolbarCategoryDetail.title = categoryLabel
 
     }
 

@@ -11,12 +11,13 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import org.techtown.shoppi_android.R
 import org.techtown.shoppi_android.databinding.FragmentCategoryBinding
+import org.techtown.shoppi_android.ui.common.EventObserver
 import org.techtown.shoppi_android.ui.common.ViewModelFactory
 
-class CategoryFragment: Fragment() {
+class CategoryFragment : Fragment() {
 
-    private val viewModel: CategoryViewModel by viewModels{ViewModelFactory(requireContext())}
-    private lateinit var binding : FragmentCategoryBinding
+    private val viewModel: CategoryViewModel by viewModels { ViewModelFactory(requireContext()) }
+    private lateinit var binding: FragmentCategoryBinding
 
 
     override fun onCreateView(
@@ -35,15 +36,16 @@ class CategoryFragment: Fragment() {
 
         val categoryAdapter = CategoryAdapter(viewModel)
         binding.rvCategoryList.adapter = categoryAdapter
-
         viewModel.items.observe(viewLifecycleOwner) {
             categoryAdapter.submitList(it)
         }
 
-        viewModel.openCatetoryEvent.observe(viewLifecycleOwner) {
-            Log.d("MVVM클릭이동이벤트처리", "CategoryFragment.viewModel.openCatetoryEvent.observe() 수정된(전달된) 데이터: " + "${it.categoryId}")
+        viewModel.openCatetoryEvent.observe(viewLifecycleOwner, EventObserver {
             openCategoryDetail(it.categoryId, it.label)
-        }
+
+        })
+
+
     }
 
 
@@ -51,18 +53,14 @@ class CategoryFragment: Fragment() {
         findNavController().navigate(
             R.id.action_category_to_category_detail, bundleOf(
                 // key, value
-                "category_id" to categoryId,
-                "category_label" to categoryLabel
+                "KEY_CATEGORY_ID" to categoryId,
+                "KEY_CATEGORY_LABEL" to categoryLabel
 
             )
         )
         Log.d("MVVM클릭이동이벤트처리", "CategoryFragment.openCategoryDetail()")
 
     }
-
-
-
-
 
 
 }
