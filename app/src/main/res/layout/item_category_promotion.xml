@@ -14,21 +14,21 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
         app:cardCornerRadius="12dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            >
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/iv_promotion_image"
                 imageUrl="@{product.representativeImageUrl}"
                 android:layout_width="0dp"
                 android:layout_height="180dp"
+                android:contentDescription="@string/description_product_representative_image"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -41,8 +41,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="15dp"
-                android:text="@{product.discountRate}"
-                app:layout_constraintStart_toStartOf="@id/iv_promotion_image"
+                android:text="@{@string/unit_discount_rate(product.discountRate)}"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_promotion_image"
                 tools:text="10%" />
 
@@ -59,15 +59,15 @@
                 tools:text="99,800원" />
 
             <TextView
-                android:id="@+id/tv_original_price"
+                android:id="@+id/tv_promotion_original_price"
                 style="@style/TextCaption1.Grey05"
+                priceAmount="@{product.price}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:text="@{@string/unit_dicount_rate(product.discountRate)}"
                 app:layout_constraintBottom_toBottomOf="@id/tv_promotion_price"
                 app:layout_constraintStart_toEndOf="@id/tv_promotion_price"
-                tools:text="102,000원" />
+                tools:text="120,000원" />
 
             <TextView
                 android:id="@+id/tv_promotion_label"
@@ -83,9 +83,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_promotion_discount_rate"
-                tools:text="[19차 리오더] 페이크 레더 숏 테일러 자켓 블랙(1" />
-
+                app:layout_constraintTop_toBottomOf="@id/tv_promotion_original_price"
+                tools:text="스피커" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

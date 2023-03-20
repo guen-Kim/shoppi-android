@@ -8,9 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import org.techtown.shoppi_android.databinding.ItemTitleBinding
 import org.techtown.shoppi_android.model.Title
 
-class CategorySectionTitleAdapter: ListAdapter<Title, CategorySectionTitleAdapter.CategorySectionTitleViewHolder>(TitleDiffCallback()){
-
-
+class CategorySectionTitleAdapter :
+    ListAdapter<Title, CategorySectionTitleAdapter.CategorySectionTitleViewHolder>(TitleDiffCallback()) {
 
 
     override fun onCreateViewHolder(
@@ -25,7 +24,8 @@ class CategorySectionTitleAdapter: ListAdapter<Title, CategorySectionTitleAdapte
         holder.bind(getItem(position))
     }
 
-    class CategorySectionTitleViewHolder(private val binding: ItemTitleBinding): RecyclerView.ViewHolder(binding.root) {
+    class CategorySectionTitleViewHolder(private val binding: ItemTitleBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
 
         fun bind(title: Title) {

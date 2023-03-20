@@ -9,8 +9,6 @@ class CategoryRepository(private val remoteDataSource: CategoryRemoteDataSource)
         withContext(Dispatchers.IO){
             remoteDataSource.getCategories()
         }*/
-
-
         return remoteDataSource.getCategories()
     }
 }
