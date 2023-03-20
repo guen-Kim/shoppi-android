@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.ConcatAdapter
 import org.techtown.shoppi_android.databinding.FragmentCategoryDetailBinding
 
-class CategoryDetailFragment: Fragment() {
+class CategoryDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentCategoryDetailBinding
 
@@ -24,13 +25,20 @@ class CategoryDetailFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.lifecycleOwner = viewLifecycleOwner
-
-        // bundle 객체에 전달된 데이터 조회하기
-        val categoryId = requireArguments().getString("KEY_CATEGORY_ID")
-        val categoryLabel = requireArguments().getString("KEY_CATEGORY_LABEL")
-
-        binding.toolbarCategoryDetail.title = categoryLabel
+        setToolbar()
+        setListAdapter()
 
     }
 
+    private fun setToolbar() {
+        val categoryLabel = requireArguments().getString("KEY_CATEGORY_LABEL")
+        binding.toolbarCategoryDetail.title = categoryLabel
+    }
+
+    private fun setListAdapter() {
+        val titleAdapter = CategorySectionTitleAdapter()
+        val promotionAdapter = CategoryPromotionAdapter()
+        binding.rvCategoryDetail.adapter = ConcatAdapter(titleAdapter, promotionAdapter)
+
+    }
 }
