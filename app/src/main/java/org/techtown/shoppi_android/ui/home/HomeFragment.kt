@@ -1,15 +1,20 @@
 package org.techtown.shoppi_android.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 
 import org.techtown.shoppi_android.R
+import org.techtown.shoppi_android.common.KEY_PRODUCT_ID
 import org.techtown.shoppi_android.databinding.FragmentHomeBinding
+import org.techtown.shoppi_android.ui.common.EventObserver
 import org.techtown.shoppi_android.ui.common.ViewModelFactory
 
 class HomeFragment : Fragment() {
@@ -37,6 +42,8 @@ class HomeFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         setToolbar()
         setTopBanners()
+        setNavigation()
+
 
 
     }
@@ -51,7 +58,7 @@ class HomeFragment : Fragment() {
     private fun setTopBanners() {
         with(binding.viewpagerHomeBanner) {
             // 어뎁터 초기화 후 topBanner observe
-            adapter = HomeBannerAdapter().apply {
+            adapter = HomeBannerAdapter(homeViewModel).apply {
                 homeViewModel.topBanner.observe(viewLifecycleOwner) { banners ->
                     submitList(banners)
                 }
@@ -72,6 +79,15 @@ class HomeFragment : Fragment() {
             ) { tab, position -> }.attach()
         }
     }// with
+
+
+    private fun setNavigation() {
+        homeViewModel.openProductEvent.observe(viewLifecycleOwner, EventObserver { productId ->
+            findNavController().navigate(R.id.action_home_to_product_detail, bundleOf(
+                KEY_PRODUCT_ID to productId
+            ))
+        })
+    }
 }
 
 

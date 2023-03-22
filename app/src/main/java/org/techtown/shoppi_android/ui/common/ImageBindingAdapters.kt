@@ -17,7 +17,6 @@ fun loadImage(view: ImageView, imageUrl: String?) {
 
 
 @BindingAdapter("circleImageUrl")
-
 fun loadCircleImage(view: ImageView, imageUrl: String?) {
 
     if(!imageUrl.isNullOrEmpty()){
@@ -27,3 +26,6 @@ fun loadCircleImage(view: ImageView, imageUrl: String?) {
             .into(view)
     }
 }
+
+
+

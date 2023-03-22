@@ -5,9 +5,11 @@
       <map>
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1345" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/drawable-xhdpi/background_bluegrey_r20.xml" value="0.1" />
+        <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/drawable/background_black_gradient.xml" value="0.1355" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/drawable/background_circle_gradient.xml" value="0.177" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/drawable/background_purple_r24.xml" value="0.181" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/drawable/background_splash_screen.xml" value="0.16799999999999998" />
+        <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/drawable/corner_image.xml" value="0.1355" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/drawable/ic_gnb_back.xml" value="0.154" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1345" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/drawable/ic_tabbar_cart_off.xml" value="0.119" />
@@ -18,7 +20,9 @@
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/drawable/selector_category_icon.xml" value="0.1485" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/drawable/selector_home_icon.xml" value="0.119" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/drawable/selector_viewpager_indicator.xml" value="0.1995" />
+        <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/drawable/shape.xml" value="0.1535" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/drawable/shape_banner.xml" value="0.1965" />
+        <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/drawable/strike_through.xml" value="0.1355" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/drawable/unselected_viewpager_indicator.xml" value="0.1995" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/layout/activity_product_detail.xml" value="0.28112449799196787" />
@@ -32,7 +36,7 @@
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/layout/item_category_promotion.xml" value="0.4" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/layout/item_category_top_selling.xml" value="0.536" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/layout/item_category_top_selling_section.xml" value="0.264" />
-        <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/layout/item_home_banner.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/layout/item_home_banner.xml" value="0.16" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/layout/item_title.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/82106/AndroidStudioProjects/shoppiandroid/app/src/main/res/menu/navigation_main_menu.xml" value="0.16944444444444445" />
       </map>

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import org.techtown.shoppi_android.model.Banner
 import org.techtown.shoppi_android.databinding.ItemHomeBannerBinding
 
-class HomeBannerAdapter :
+class HomeBannerAdapter(private val viewModel: HomeViewModel) :
     ListAdapter<Banner, HomeBannerAdapter.HomeBannerViewHolder>(BannerDiffCallBack()) {
 
     private lateinit var binding: ItemHomeBannerBinding
@@ -32,10 +32,11 @@ class HomeBannerAdapter :
 
     }
 
-    class HomeBannerViewHolder(private val binding: ItemHomeBannerBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class HomeBannerViewHolder(private val binding: ItemHomeBannerBinding) : RecyclerView.ViewHolder(binding.root) {
 
 
         fun bind(banner: Banner) {
+            binding.viewModel = viewModel
             binding.banner = banner
             binding.executePendingBindings()
         }
