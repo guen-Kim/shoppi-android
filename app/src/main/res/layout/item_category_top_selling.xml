@@ -45,7 +45,7 @@
             android:paddingBottom="3dp"
             app:layout_constraintEnd_toEndOf="@id/iv_category_top_selling_image"
             app:layout_constraintTop_toTopOf="@id/iv_category_top_selling_image"
-            tools:text="N" />
+            android:text="N" />
 
         <TextView
             android:id="@+id/tv_category_top_selling_label"

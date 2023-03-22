@@ -28,6 +28,7 @@ class CategorySectionTitleAdapter :
         RecyclerView.ViewHolder(binding.root) {
 
 
+
         fun bind(title: Title) {
             binding.title = title
             binding.executePendingBindings()
