@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_product_detail"
-        android:name="org.techtown.shoppi_android.ui.ProductDetailFragment"
+        android:name="org.techtown.shoppi_android.ui.productdetail.ProductDetailFragment"
         android:label="ProductDetailFragment"
         tools:layout="@layout/fragment_product_detail"/>
     <fragment

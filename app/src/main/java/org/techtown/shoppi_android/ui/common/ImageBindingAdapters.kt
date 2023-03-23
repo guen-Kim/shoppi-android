@@ -1,5 +1,6 @@
 package org.techtown.shoppi_android.ui.common
 
+
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
