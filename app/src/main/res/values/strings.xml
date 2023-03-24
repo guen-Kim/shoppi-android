@@ -19,4 +19,9 @@
     <string name="product_detail_cart">장바구니 담기</string>
     <string name="coupon_price_label">쿠폰 적용가</string>
     <string name="detail_image">상품 상세 이미지</string>
+    <string name="label_cart_purchase_button">선택한 상품 주문하기</string>
+    <string name="description_cart_item_thumbnail">카트 아이템 섬네일</string>
+    <string name="description_btn_delete_cart_item">카트 아이템 삭제 버튼</string>
+    <string name="description_btn_minus_cart_item">아이템 마이너스</string>
+    <string name="description_btn_plus_cart_item">장바구니 아이템 추가</string>
 </resources>
