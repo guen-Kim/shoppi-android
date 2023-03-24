@@ -6,11 +6,16 @@
     <data>
 
         <variable
+            name="clickListener"
+            type="org.techtown.shoppi_android.ui.common.ProductClickListener" />
+        <variable
             name="product"
             type="org.techtown.shoppi_android.model.Product" />
     </data>
 
     <androidx.cardview.widget.CardView
+        android:onClick="@{() -> clickListener.onProductClick(product.productId)}"
+        android:id="@+id/cv_promotion_container"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_marginStart="16dp"

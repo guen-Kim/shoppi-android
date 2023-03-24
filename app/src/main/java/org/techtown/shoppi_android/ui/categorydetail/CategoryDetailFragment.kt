@@ -9,10 +9,11 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ConcatAdapter
 import org.techtown.shoppi_android.databinding.FragmentCategoryDetailBinding
 import org.techtown.shoppi_android.repository.categorydetail.CategoryDetailViewModel
-import org.techtown.shoppi_android.ui.category.CategoryViewModel
+import org.techtown.shoppi_android.ui.common.ProductClickListener
 import org.techtown.shoppi_android.ui.common.ViewModelFactory
+import org.techtown.shoppi_android.ui.common.rvadapter.PromotionAdapter
 
-class CategoryDetailFragment : Fragment() {
+class CategoryDetailFragment : Fragment(), ProductClickListener {
 
     private lateinit var binding: FragmentCategoryDetailBinding
     private val viewModel: CategoryDetailViewModel by viewModels { ViewModelFactory(requireContext()) }
@@ -43,8 +44,8 @@ class CategoryDetailFragment : Fragment() {
 
     private fun setListAdapter() {
         val topSectionSectionAdapter = CategoryTopSellingSectionAdapter()
-        val titleAdapter = CategorySectionTitleAdapter()
-        val promotionAdapter = CategoryPromotionAdapter()
+        val titleAdapter = SectionTitleAdapter()
+        val promotionAdapter = PromotionAdapter(this)
         // ConcatAdapter, 할당 순으로 데이터 배치
         binding.rvCategoryDetail.adapter = ConcatAdapter(topSectionSectionAdapter,titleAdapter, promotionAdapter)
         viewModel.promotions.observe(viewLifecycleOwner) { promotions ->
@@ -57,4 +58,13 @@ class CategoryDetailFragment : Fragment() {
         }
 
     }
+
+
+    // ProductClickListener
+    override fun onProductClick(productId: String) {
+        //Todo ProductDetailFragment 이동 구현
+
+    }
+
+
 }

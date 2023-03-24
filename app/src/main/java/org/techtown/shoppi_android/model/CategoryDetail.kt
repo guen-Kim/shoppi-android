@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class CategoryDetail(
     @SerializedName("top_selling") val topSelling: TopSelling,
-    val promotions: Promotions
+    @SerializedName("promotions") val promotion: Promotion
 )
 
 
@@ -13,7 +13,7 @@ data class TopSelling(
     val categories :List<Category>,
 )
 
-data class Promotions(
+data class Promotion(
     val title: Title,
     val items: List<Product>
 )

@@ -39,6 +39,7 @@ class ProductDetailFragment: Fragment() {
 
         // productId 전달 받음
         requireArguments().getString(KEY_PRODUCT_ID)?.let{ productId ->
+            // 전달 받은 id 값으로 api path 요청
             setLayout(productId)
         }
     }

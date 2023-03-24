@@ -17,11 +17,15 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.navigation_main)
         bottomNavigationView.itemIconTintList = null
 
-        //
+
          val navController = supportFragmentManager.findFragmentById(R.id.container_main)?.findNavController()
         navController?.let{
             bottomNavigationView.setupWithNavController(it)
         }
+
+
+
+
 
 
     }

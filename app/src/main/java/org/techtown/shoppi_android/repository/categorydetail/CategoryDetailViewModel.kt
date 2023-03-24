@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import org.techtown.shoppi_android.model.Promotions
+import org.techtown.shoppi_android.model.Promotion
 import org.techtown.shoppi_android.model.TopSelling
 
 class CategoryDetailViewModel(private val repository: CategoryDetailRepository): ViewModel() {
@@ -14,8 +14,8 @@ class CategoryDetailViewModel(private val repository: CategoryDetailRepository):
     private val _topSelling = MutableLiveData<TopSelling>()
     val topSelling: LiveData<TopSelling> = _topSelling
 
-    private val _promotions = MutableLiveData<Promotions>()
-    val promotions: LiveData<Promotions> = _promotions
+    private val _promotion = MutableLiveData<Promotion>()
+    val promotions: LiveData<Promotion> = _promotion
 
     init{
         loadCategoryDetail()
@@ -25,7 +25,7 @@ class CategoryDetailViewModel(private val repository: CategoryDetailRepository):
         viewModelScope.launch {
             val categoryDetail = repository.getCategoryDetail()
             _topSelling.value = categoryDetail.topSelling
-            _promotions.value = categoryDetail.promotions
+            _promotion.value = categoryDetail.promotion
 
         }
 

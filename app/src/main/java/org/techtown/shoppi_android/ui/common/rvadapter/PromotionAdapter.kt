@@ -1,4 +1,4 @@
-package org.techtown.shoppi_android.ui.categorydetail
+package org.techtown.shoppi_android.ui.common.rvadapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,28 +7,37 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import org.techtown.shoppi_android.databinding.ItemCategoryPromotionBinding
 import org.techtown.shoppi_android.model.Product
+import org.techtown.shoppi_android.ui.common.ProductClickListener
 
-class CategoryPromotionAdapter: ListAdapter<Product, CategoryPromotionAdapter.CategoryPromotionViewHolder>(ProductDiffCallback()){
-
+class PromotionAdapter(private val clickListener: ProductClickListener) :
+    ListAdapter<Product, PromotionAdapter.PromotionViewHolder>(ProductDiffCallback()) {
 
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): CategoryPromotionViewHolder {
-        val binding = ItemCategoryPromotionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return CategoryPromotionAdapter.CategoryPromotionViewHolder(binding)
+    ): PromotionViewHolder {
+        val binding =
+            ItemCategoryPromotionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return PromotionViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: CategoryPromotionAdapter.CategoryPromotionViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: PromotionViewHolder,
+        position: Int
+    ) {
         holder.bind(getItem(position))
     }
-
-    class CategoryPromotionViewHolder(private val binding: ItemCategoryPromotionBinding): RecyclerView.ViewHolder(binding.root) {
+    // inner 처리 ProductClickListener 구현체 공유를 위한
+    inner class PromotionViewHolder(
+        private val binding: ItemCategoryPromotionBinding,
+    ) : RecyclerView.ViewHolder(binding.root) {
 
 
         fun bind(product: Product) {
+            // data binding
             binding.product = product
+            binding.clickListener = clickListener
             binding.executePendingBindings()
         }
     }
