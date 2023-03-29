@@ -1,5 +1,6 @@
 package org.techtown.shoppi_android.ui.productdetail
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,11 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.techtown.shoppi_android.common.KEY_PRODUCT_ID
 import org.techtown.shoppi_android.databinding.FragmentProductDetailBinding
+import org.techtown.shoppi_android.ui.common.EventObserver
 import org.techtown.shoppi_android.ui.common.ViewModelFactory
 
-class ProductDetailFragment: Fragment() {
+class ProductDetailFragment : Fragment() {
 
     private val viewModel: ProductDetailViewModel by viewModels { ViewModelFactory(requireContext()) }
 
@@ -35,18 +38,34 @@ class ProductDetailFragment: Fragment() {
         //fragment lifecycler로 초기화
         binding.lifecycleOwner = viewLifecycleOwner
 
+        //databinding
+        binding.viewModel = viewModel
+
         setNavigation()
 
         // productId 전달 받음
-        requireArguments().getString(KEY_PRODUCT_ID)?.let{ productId ->
+        requireArguments().getString(KEY_PRODUCT_ID)?.let { productId ->
             // 전달 받은 id 값으로 api path 요청
             setLayout(productId)
         }
+
+        setAddCart()
+
+    }
+
+    private fun setAddCart() {
+
+        viewModel.addCartEvent.observe(viewLifecycleOwner, EventObserver {
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle("장바구니에 상품이 담겼습니다.")
+                .setPositiveButton("확인") { dialog, which ->
+                }.show()
+        })
     }
 
 
     private fun setNavigation() {
-        binding.toobalProductDetail.setNavigationOnClickListener{
+        binding.toobalProductDetail.setNavigationOnClickListener {
             // 이전화면으로 돌아가기
             findNavController().navigateUp()
         }
@@ -54,7 +73,7 @@ class ProductDetailFragment: Fragment() {
     }
 
 
-    private fun setLayout(productId : String){
+    private fun setLayout(productId: String) {
         // ProductDetail 데이터 로드
         viewModel.loadProductData(productId)
         // 어댑터 생성

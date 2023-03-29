@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import org.techtown.shoppi_android.AssetsLoader
-import org.techtown.shoppi_android.network.ApiClient
-import org.techtown.shoppi_android.network.ServiceLocator
+import org.techtown.shoppi_android.ServiceLocator
+import org.techtown.shoppi_android.repository.cart.CartItemLocalDataSource
 import org.techtown.shoppi_android.repository.category.CategoryRemoteDataSource
 import org.techtown.shoppi_android.repository.category.CategoryRepository
 import org.techtown.shoppi_android.repository.categorydetail.CategoryDetailRemoteDataSource
@@ -15,6 +15,7 @@ import org.techtown.shoppi_android.repository.home.HomeAssetDataSource
 import org.techtown.shoppi_android.repository.home.HomeRepository
 import org.techtown.shoppi_android.repository.productdetail.ProductDetailRemoteDataSource
 import org.techtown.shoppi_android.repository.productdetail.ProductDetailRepository
+import org.techtown.shoppi_android.ui.cart.CartViewModel
 import org.techtown.shoppi_android.ui.category.CategoryViewModel
 import org.techtown.shoppi_android.ui.home.HomeViewModel
 import org.techtown.shoppi_android.ui.productdetail.ProductDetailViewModel
@@ -37,7 +38,10 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.Factory
         } else if (modelClass.isAssignableFrom(ProductDetailViewModel::class.java)) {
 
             val repository = ProductDetailRepository(ProductDetailRemoteDataSource(ServiceLocator.provideApiClient()))
-            ProductDetailViewModel(repository) as T
+            ProductDetailViewModel(repository,ServiceLocator.provideCartRepository(context) ) as T
+        } else if (modelClass.isAssignableFrom(CartViewModel::class.java)) {
+            CartViewModel(ServiceLocator.provideCartRepository(context)) as T
+
         } else {
             throw IllegalArgumentException("Failed to create ViewModel: ${modelClass.name}")
         }
