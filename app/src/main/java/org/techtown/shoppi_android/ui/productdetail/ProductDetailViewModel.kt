@@ -5,13 +5,17 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.launch
 import org.techtown.shoppi_android.model.Product
 import org.techtown.shoppi_android.repository.cart.CartRepository
 import org.techtown.shoppi_android.repository.productdetail.ProductDetailRepository
 import org.techtown.shoppi_android.ui.common.Event
+import javax.inject.Inject
 
-class ProductDetailViewModel(
+@HiltViewModel
+class ProductDetailViewModel @Inject constructor(
     private val productDetailRepository: ProductDetailRepository,
     private val cartRepository: CartRepository
 ) : ViewModel() {

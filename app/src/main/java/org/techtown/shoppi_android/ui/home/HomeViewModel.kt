@@ -16,8 +16,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val homeRepository: HomeRepository) : ViewModel() {
-
-
     // 상단 ui
     private val _title = MutableLiveData<Title>()
     val title: LiveData<Title> = _title //데이터 참조

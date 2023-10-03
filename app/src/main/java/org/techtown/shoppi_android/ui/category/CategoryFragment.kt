@@ -9,14 +9,15 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import org.techtown.shoppi_android.R
 import org.techtown.shoppi_android.databinding.FragmentCategoryBinding
 import org.techtown.shoppi_android.ui.common.EventObserver
-import org.techtown.shoppi_android.ui.common.ViewModelFactory
 
+@AndroidEntryPoint
 class CategoryFragment : Fragment() {
 
-    private val viewModel: CategoryViewModel by viewModels { ViewModelFactory(requireContext()) }
+    private val viewModel: CategoryViewModel by viewModels ()
     private lateinit var binding: FragmentCategoryBinding
 
 

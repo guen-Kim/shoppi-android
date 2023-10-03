@@ -6,13 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import org.techtown.shoppi_android.R
+import dagger.hilt.android.AndroidEntryPoint
 import org.techtown.shoppi_android.databinding.FragmentCartBinding
-import org.techtown.shoppi_android.ui.common.ViewModelFactory
 
+
+@AndroidEntryPoint
 class CartFragment : Fragment() {
 
-    private val viewModel: CartViewModel by viewModels { ViewModelFactory(requireContext()) }
+    private val viewModel: CartViewModel by viewModels ()
     private lateinit var binding: FragmentCartBinding
 
 

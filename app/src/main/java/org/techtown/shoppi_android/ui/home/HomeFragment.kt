@@ -19,12 +19,10 @@ import org.techtown.shoppi_android.ui.common.rvadapter.PromotionAdapter
 import org.techtown.shoppi_android.ui.categorydetail.SectionTitleAdapter
 import org.techtown.shoppi_android.ui.common.EventObserver
 import org.techtown.shoppi_android.ui.common.ProductClickListener
-import org.techtown.shoppi_android.ui.common.ViewModelFactory
 
 
 @AndroidEntryPoint
 class HomeFragment : Fragment(), ProductClickListener {
-
 
     private val homeViewModel: HomeViewModel by viewModels() // injection
 

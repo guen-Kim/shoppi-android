@@ -1,6 +1,5 @@
 package org.techtown.shoppi_android.ui.productdetail
 
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,14 +8,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import dagger.hilt.android.AndroidEntryPoint
 import org.techtown.shoppi_android.common.KEY_PRODUCT_ID
 import org.techtown.shoppi_android.databinding.FragmentProductDetailBinding
 import org.techtown.shoppi_android.ui.common.EventObserver
-import org.techtown.shoppi_android.ui.common.ViewModelFactory
 
+@AndroidEntryPoint
 class ProductDetailFragment : Fragment() {
 
-    private val viewModel: ProductDetailViewModel by viewModels { ViewModelFactory(requireContext()) }
+    private val viewModel: ProductDetailViewModel by viewModels() // Injection
 
     lateinit var binding: FragmentProductDetailBinding
 

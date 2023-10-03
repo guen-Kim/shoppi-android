@@ -4,12 +4,14 @@ import android.util.Log
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import org.techtown.shoppi_android.di.IoDispatcher
 import org.techtown.shoppi_android.model.CartItem
 import org.techtown.shoppi_android.model.Product
+import javax.inject.Inject
 
-class CartRepository(
+class CartRepository @Inject constructor(
     private val localDataSource: CartItemLocalDataSource,
-    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO // IO 스레드, 데이터를 요청하는 부분
+    @IoDispatcher private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO // IO 스레드, 데이터를 요청하는 부분
 ) {
 
     suspend fun addCartItem(product: Product) { // product detail 화면 버튼 클릭시 호출

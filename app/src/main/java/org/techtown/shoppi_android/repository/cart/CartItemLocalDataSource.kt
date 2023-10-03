@@ -2,8 +2,9 @@ package org.techtown.shoppi_android.repository.cart
 
 import org.techtown.shoppi_android.database.CartItemDao
 import org.techtown.shoppi_android.model.CartItem
+import javax.inject.Inject
 
-class CartItemLocalDataSource(
+class CartItemLocalDataSource @Inject constructor(
     private val dao: CartItemDao
 ): CartItemDataSource {
 

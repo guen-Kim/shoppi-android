@@ -1,14 +1,18 @@
-package org.techtown.shoppi_android.repository.categorydetail
+package org.techtown.shoppi_android.ui.categorydetail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import org.techtown.shoppi_android.model.Promotion
 import org.techtown.shoppi_android.model.TopSelling
+import org.techtown.shoppi_android.repository.categorydetail.CategoryDetailRepository
+import javax.inject.Inject
 
-class CategoryDetailViewModel(private val repository: CategoryDetailRepository): ViewModel() {
+@HiltViewModel
+class CategoryDetailViewModel @Inject constructor(private val repository: CategoryDetailRepository): ViewModel() {
 
 
     private val _topSelling = MutableLiveData<TopSelling>()
@@ -28,9 +32,5 @@ class CategoryDetailViewModel(private val repository: CategoryDetailRepository):
             _promotion.value = categoryDetail.promotion
 
         }
-
-
     }
-
-
 }
