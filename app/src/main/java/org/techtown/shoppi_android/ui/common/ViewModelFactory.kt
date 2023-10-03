@@ -25,11 +25,13 @@ import java.lang.IllegalArgumentException
 class ViewModelFactory(private val context: Context) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
-            // 안드로이드 asset 에서 데이터 로드
-            val repository = HomeRepository(HomeAssetDataSource(AssetsLoader(context)))
-            HomeViewModel(repository) as T // 종속 항목 주입된 ViewModel 반환
-        }else if (modelClass.isAssignableFrom(CategoryViewModel::class.java)) {
+
+//        if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
+//            // 안드로이드 asset 에서 데이터 로드
+//            val repository = HomeRepository(HomeAssetDataSource(AssetsLoader(context)))
+//            HomeViewModel(repository) as T // 종속 항목 주입된 ViewModel 반환
+//        }else
+            return if (modelClass.isAssignableFrom(CategoryViewModel::class.java)) {
             val repository = CategoryRepository(CategoryRemoteDataSource(ServiceLocator.provideApiClient()))
             CategoryViewModel(repository) as T
         } else if (modelClass.isAssignableFrom(CategoryDetailViewModel::class.java)) {

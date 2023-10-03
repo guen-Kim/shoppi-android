@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
 import org.techtown.shoppi_android.R
 import org.techtown.shoppi_android.common.KEY_PRODUCT_ID
@@ -20,10 +21,12 @@ import org.techtown.shoppi_android.ui.common.EventObserver
 import org.techtown.shoppi_android.ui.common.ProductClickListener
 import org.techtown.shoppi_android.ui.common.ViewModelFactory
 
+
+@AndroidEntryPoint
 class HomeFragment : Fragment(), ProductClickListener {
 
 
-    private val homeViewModel: HomeViewModel by viewModels { ViewModelFactory(requireContext()) }
+    private val homeViewModel: HomeViewModel by viewModels() // injection
 
     // databinding 클래스
     private lateinit var binding: FragmentHomeBinding
@@ -97,6 +100,7 @@ class HomeFragment : Fragment(), ProductClickListener {
     private fun setListAdapter() {
         // 어댑터 생성
         val titleAdapter = SectionTitleAdapter()
+
         val promotionAdapter = PromotionAdapter(this)
 
         // 어댑터 binding

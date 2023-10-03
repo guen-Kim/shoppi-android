@@ -5,14 +5,17 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import org.techtown.shoppi_android.model.Banner
 import org.techtown.shoppi_android.model.Product
 import org.techtown.shoppi_android.model.Promotion
 import org.techtown.shoppi_android.model.Title
 import org.techtown.shoppi_android.repository.home.HomeRepository
 import org.techtown.shoppi_android.ui.common.Event
+import javax.inject.Inject
 
-class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
+@HiltViewModel
+class HomeViewModel @Inject constructor(private val homeRepository: HomeRepository) : ViewModel() {
 
 
     // 상단 ui
